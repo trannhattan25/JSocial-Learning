@@ -1,4 +1,7 @@
 package com.tranhatan.Social.Learning.entity;
 
-public class VocabularyDefinition {
-}
+import jakarta.persistence.Entity;
+
+////@Entity
+//public class VocabularyDefinition {
+//}

@@ -19,9 +19,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(columnDefinition = "varchar(255) comment 'user name'",nullable = false)
-    private String username;
-    @Column(columnDefinition = "varchar(255) comment 'user email'",nullable = false, unique = true)
+     private String username;
+    @Column(unique = true)
     private String email;
     private String password;
     private String avatarUrl;
@@ -34,15 +33,15 @@ public class User {
 
     // ===== リレーション =====
 
-    @OneToMany(mappedBy = "user")
-    private List<Post> posts = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    private List<Comment> comments = new ArrayList<>();
-
-    @OneToMany(mappedBy = "follower")
-    private List<Follow> following = new ArrayList<>();
-
-    @OneToMany(mappedBy = "following")
-    private List<Follow> followers = new ArrayList<>();
+//    @OneToMany(mappedBy = "user")
+//    private List<Post> posts = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "user")
+//    private List<Comment> comments = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "follower")
+//    private List<Follow> following = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "following")
+//    private List<Follow> followers = new ArrayList<>();
 }
