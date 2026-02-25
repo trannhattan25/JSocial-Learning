@@ -2,6 +2,8 @@ package com.tranhatan.Social.Learning.repository;
 
 import com.tranhatan.Social.Learning.entity.User;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -14,6 +16,11 @@ import java.util.List;
 //Annatation
 //@RepositoryDefinition(domainClass = User.class, idClass = Long.class)
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
+    //    use pageable
+    Page<User> findByUsername(String username, Pageable pageable);
+    Page<User> findByUsernameContaining(String username, Pageable pageable);
+
+
     // find username vs Email
 //    findbyUserNameAndEmail -> Jpa sẽ(xóa findby) -> UserNameAndEmail
 //    userNameAndEmail
@@ -51,7 +58,7 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
     @Transactional
     int updateUserName(@Param("username") String username);
 
-//    native querry
+    //    native querry
     /*
      *get count user use native query
      */
